@@ -20,14 +20,14 @@ yarn add react-native-mention-hashtag
 
 ### Usage
 
-The package provides two main components: MentionHashtagText and Provider. The Provider component provides necessary props such as onMentionPress and onHashtagPress, and these props are passed to all MentionHashtagText components. However, the Provider component is optional and MentionHashtagText component can be used directly without any component.
+This package provides two components named MentionHashtagText and MentionHashtagTextProvider. Under MentionHashtagText, there is a provider named `Provider`. MentionHashtagTextProvider is equivalent to MentionHashtagText.Provider. The provider component provides necessary properties such as onMentionPress and onHashtagPress, and these properties are passed to all MentionHashtagText components. However, the provider component is optional, and the MentionHashtagText component can be used directly without any component.
 
-```jsx
+```tsx
 import React from "react";
 import { View } from "react-native";
-import MentionHashtagText, { Provider } from "mention-hashtag-parser";
+import { MentionHashtagText } from "react-native-mention-hashtag";
 
-const MyComponent: React.FC = () => {
+const MyComponent = () => {
   const handleMentionPress = (mention: string) => {
     console.log("Mention pressed:", mention);
   };
@@ -70,7 +70,7 @@ The MentionHashtagText component inherits all props of the Text component in Rea
 
 #### Basic Usage
 
-```jsx
+```tsx
 <MentionHashtagText
   onMentionPress={(mention) => console.log("Mention pressed:", mention)}
   onHashtagPress={(hashtag) => console.log("Hashtag pressed:", hashtag)}
@@ -81,7 +81,7 @@ The MentionHashtagText component inherits all props of the Text component in Rea
 
 #### Applying Styles
 
-```jsx
+```tsx
 <MentionHashtagText
   onMentionPress={(mention) => console.log("Mention pressed:", mention)}
   onHashtagPress={(hashtag) => console.log("Hashtag pressed:", hashtag)}
@@ -94,14 +94,14 @@ The MentionHashtagText component inherits all props of the Text component in Rea
 
 #### Setting Minimum Lengths
 
-```jsx
+```tsx
 <MentionHashtagText
   onMentionPress={(mention) => console.log("Mention pressed:", mention)}
   onHashtagPress={(hashtag) => console.log("Hashtag pressed:", hashtag)}
   minMentionLength={3}
   minHashtagLength={2}
 >
-  Hello @w #reactnative
+  Hello @world #reactnative
 </MentionHashtagText>
 ```
 

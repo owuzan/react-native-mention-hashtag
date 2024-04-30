@@ -5,3 +5,5 @@ src
 tsconfig.json
 yarn.lock
 .changeset
+CHANGELOG.md
+tsup.config.ts

@@ -161,3 +161,4 @@ function MentionHashtagText(props: MentionHashtagTextProps) {
 }
 MentionHashtagText.displayName = "MentionHashtagText";
 MentionHashtagText.Provider = Provider;
+export { MentionHashtagText };
