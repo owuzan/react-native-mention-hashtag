@@ -1,0 +1,40 @@
+{
+  "name": "react-native-mention-hashtag",
+  "version": "1.0.0",
+  "description": "React Native Mention and Hashtag Text Component",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "source": "./src/index.tsx",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "changeset": "changeset",
+    "release": "changeset version",
+    "publish": "changeset publish",
+    "prepare": "npm run build",
+    "postpublish": "git push --follow-tags"
+  },
+  "keywords": [
+    "react-native",
+    "mention",
+    "hashtag"
+  ],
+  "author": "Oğuzhan Yılmaz<me@oguzhan.dev>",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/react": "^18.3.1",
+    "@types/react-native": "^0.73.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-native": "^0.74.0"
+  },
+  "dependencies": {}
+}
