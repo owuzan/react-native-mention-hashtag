@@ -2,7 +2,7 @@
 
 This package allows you to capture mention (tagging) and hashtag elements within text in React Native applications. When a mention or hashtag is detected within the text, it calls the specified callback functions, providing customized functionality to the user.
 
-![React Native Mention Hashtag Screenshot](/assets/screenshot.png)
+![React Native Mention Hashtag Screenshot](./assets/screenshot.png)
 
 ## How to Use
 

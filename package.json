@@ -1,6 +1,6 @@
 {
   "name": "react-native-mention-hashtag",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "React Native Mention and Hashtag Text Component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

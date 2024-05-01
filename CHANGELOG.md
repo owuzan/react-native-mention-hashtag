@@ -1,5 +1,11 @@
 # react-native-mention-hashtag
 
+## 1.0.13
+
+### Patch Changes
+
+- Update README.md
+
 ## 1.0.12
 
 ### Patch Changes
