@@ -1,5 +1,5 @@
 import { MentionHashtagTextProps } from "./MentionHashtagText";
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 
 export const MentionHashtagContext = createContext<MentionHashtagTextProps>({});
 export function useMentionHashtag() {
@@ -7,10 +7,10 @@ export function useMentionHashtag() {
   return context;
 }
 
-type ProviderProps = MentionHashtagTextProps & {
+type MentionHashtagProviderProps = MentionHashtagTextProps & {
   children?: React.ReactNode;
 };
-export function Provider(props: ProviderProps) {
+export function MentionHashtagProvider(props: MentionHashtagProviderProps) {
   const { children, ...rest } = props;
   return (
     <MentionHashtagContext.Provider value={rest}>
@@ -18,4 +18,4 @@ export function Provider(props: ProviderProps) {
     </MentionHashtagContext.Provider>
   );
 }
-Provider.displayName = "MentionHashtag.Provider";
+MentionHashtagProvider.displayName = "MentionHashtagProvider";

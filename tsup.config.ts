@@ -5,5 +5,6 @@ export default defineConfig({
   dts: true,
   format: ["cjs", "esm"],
   outDir: "dist",
+  shims: true,
   entry: ["src/index.tsx"],
 });

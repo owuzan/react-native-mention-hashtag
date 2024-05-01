@@ -1,2 +1,3 @@
-export * from "./MentionHashtagText";
-export { Provider as MentionHashtagTextProvider } from "./Provider";
+export { MentionHashtagText } from "./MentionHashtagText";
+export type { MentionHashtagTextProps } from "./MentionHashtagText";
+export { MentionHashtagProvider } from "./Provider";

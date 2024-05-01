@@ -20,12 +20,15 @@ yarn add react-native-mention-hashtag
 
 ### Usage
 
-This package provides two components named MentionHashtagText and MentionHashtagTextProvider. Under MentionHashtagText, there is a provider named `Provider`. MentionHashtagTextProvider is equivalent to MentionHashtagText.Provider. The provider component provides necessary properties such as onMentionPress and onHashtagPress, and these properties are passed to all MentionHashtagText components. However, the provider component is optional, and the MentionHashtagText component can be used directly without any component.
+This package provides two components named MentionHashtagText and MentionHashtagProvider. The provider component provides necessary properties such as onMentionPress and onHashtagPress, and these properties are passed to all MentionHashtagText components. However, the provider component is optional, and the MentionHashtagText component can be used directly without any component.
 
 ```tsx
 import React from "react";
 import { View } from "react-native";
-import { MentionHashtagText } from "react-native-mention-hashtag";
+import {
+  MentionHashtagProvider,
+  MentionHashtagText,
+} from "react-native-mention-hashtag";
 
 const MyComponent = () => {
   const handleMentionPress = (mention: string) => {
@@ -37,14 +40,14 @@ const MyComponent = () => {
   };
 
   return (
-    <Provider
+    <MentionHashtagProvider
       onMentionPress={handleMentionPress}
       onHashtagPress={handleHashtagPress}
     >
       <View>
         <MentionHashtagText>Hello @world #reactnative</MentionHashtagText>
       </View>
-    </Provider>
+    </MentionHashtagProvider>
   );
 };
 
@@ -59,8 +62,8 @@ export default MyComponent;
 | ------------------ | -------------------------------------------------- | ----------- | ------------------------------------------- |
 | `onMentionPress`   | Callback function called when a mention is pressed | `undefined` | `(mention: string) => console.log(mention)` |
 | `onHashtagPress`   | Callback function called when a hashtag is pressed | `undefined` | `(hashtag: string) => console.log(hashtag)` |
-| `minHashtagLength` | Minimum length of a hashtag                        | 1           | `3`                                         |
-| `minMentionLength` | Minimum length of a mention                        | 5           | `3`                                         |
+| `minHashtagLength` | Minimum length of a hashtag                        | 1           | 3                                           |
+| `minMentionLength` | Minimum length of a mention                        | 1           | 5                                           |
 | `mentionTextStyle` | Style object for mention text                      | `{}`        | `{ color: 'blue' }`                         |
 | `hashtagTextStyle` | Style object for hashtag text                      | `{}`        | `{ color: 'green' }`                        |
 

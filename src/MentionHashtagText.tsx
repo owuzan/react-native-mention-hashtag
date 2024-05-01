@@ -1,7 +1,13 @@
-import { Fragment } from "react";
-import { GestureResponderEvent, Text, TextProps } from "react-native";
-import { Provider, useMentionHashtag } from "./Provider";
-
+import React, { Fragment } from "react";
+import {
+  GestureResponderEvent,
+  StyleProp,
+  Text,
+  TextProps,
+  TextStyle,
+} from "react-native";
+import { useMentionHashtag } from "./Provider";
+import { merge } from "lodash";
 export interface MentionHashtagTextProps extends TextProps {
   /**
    * Callback when a mention is pressed.
@@ -41,39 +47,35 @@ export interface MentionHashtagTextProps extends TextProps {
    * The style of the mention text.
    * @default {}
    */
-  mentionTextStyle?: TextProps["style"];
+  mentionTextStyle?: StyleProp<TextStyle>;
   /**
    * The style of the hashtag text.
    * @default {}
    */
-  hashtagTextStyle?: TextProps["style"];
+  hashtagTextStyle?: StyleProp<TextStyle>;
   /**
    * The text to parse for mentions and hashtags.
    */
   children?: string | null;
+  /**
+   * For internal use only. (data-with-space)
+   */
+  [key: `data-${string}`]: any;
 }
-function MentionHashtagText(props: MentionHashtagTextProps) {
+export const MentionHashtagText = (props: MentionHashtagTextProps) => {
   const context = useMentionHashtag();
-  const mergedProps = { ...context, ...props };
+  const mergedProps = merge({}, context, props);
   const {
     onMentionPress,
     onHashtagPress,
-    minHashtagLength = mergedProps.minHashtagLength &&
-    mergedProps.minHashtagLength > 0
-      ? mergedProps.minHashtagLength
-      : 1,
-    minMentionLength = mergedProps.minMentionLength &&
-    mergedProps.minMentionLength > 0
-      ? mergedProps.minMentionLength
-      : 5,
+    minHashtagLength = 1,
+    minMentionLength = 1,
     mentionTextStyle = {},
     hashtagTextStyle = {},
     children,
-
     ...rest
   } = mergedProps;
 
-  // @ts-ignore
   const withSpace = mergedProps["data-with-space"] !== false;
 
   if (!children) {
@@ -156,9 +158,7 @@ function MentionHashtagText(props: MentionHashtagTextProps) {
     }
     return part;
   });
-
   return <Text {...rest}>{parts}</Text>;
-}
+};
+
 MentionHashtagText.displayName = "MentionHashtagText";
-MentionHashtagText.Provider = Provider;
-export { MentionHashtagText };
