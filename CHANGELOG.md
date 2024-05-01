@@ -1,5 +1,11 @@
 # react-native-mention-hashtag
 
+## 1.0.12
+
+### Patch Changes
+
+- Fix merge styles
+
 ## 1.0.11
 
 ### Patch Changes
